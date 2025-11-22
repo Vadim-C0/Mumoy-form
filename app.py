@@ -130,7 +130,7 @@ class SubmissionForm(FlaskForm):
     )
     information = TextAreaField('Information', validators=[DataRequired(), Length(max=2000)])
     terms = BooleanField('Terms and Conditions', validators=[DataRequired()])
-    recaptcha = RecaptchaField()
+    #recaptcha = RecaptchaField()
 
 # --- HTTPS Redirect ---
 @app.before_request
@@ -259,6 +259,7 @@ def internal_error(e):
 if __name__ == '__main__':
     debug = not is_production
     app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)), debug=debug)
+
 
 
 
