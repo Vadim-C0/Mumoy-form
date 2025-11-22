@@ -1,0 +1,157 @@
+:root {
+    --color-background:#b6b2b2;
+    --color-text:#000;
+}
+
+* {
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body {
+    font-family:Tahoma, sans-serif;
+    width:100%;
+    min-height:100vh;
+    color:var(--color-text);
+    background-color:var(--color-background);
+}
+
+h1, p {
+    margin:1em auto;
+    text-align:center;
+}
+
+form {
+    margin:2em auto;
+    padding:2em;
+    min-width:280px;
+    max-width:500px;
+    width:90%;
+    background-color:rgba(255,255,255,0.95);
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+fieldset {
+    border:none;
+    border-bottom:3px solid var(--color-text);
+    padding:1.5rem 0;
+}
+
+fieldset:last-of-type {
+    border-bottom:none;
+}
+
+label {
+    display:block;
+    margin:0.5rem 0;
+}
+
+input, textarea, select {
+    width:100%;
+    margin:0.3em 0 0 0;
+    min-height:2em;
+    padding:0.4em;
+    border-radius:5px;
+    border:1px solid #555;
+    font-size:1rem;
+}
+
+input[type="submit"] {
+    display:block;
+    min-width:250px;
+    width:70%;
+    margin:1em auto;
+    height:2.2em;
+    font-size:1.1rem;
+    font-weight:700;
+    cursor:pointer;
+    background-color:var(--color-text);
+    color:var(--color-background);
+    border:none;
+    border-radius:5px;
+    transition:all 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color:#333;
+    color:#fff;
+}
+
+/* Checkbox styling */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-top: 1em;
+    font-size: 0.95rem;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5em;
+    accent-color: var(--color-text);
+}
+
+/* Radio buttons styling */
+.radio-group {
+    display: flex;
+    gap: 1em;
+    margin-top: 0.5em;
+    flex-wrap: wrap;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.radio-label input[type="radio"] {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5em;
+    accent-color: var(--color-text);
+}
+
+/* Styled select */
+.styled-select {
+    width: 100%;
+    padding: 0.4em;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #fff;
+    color: #000;
+    font-size: 1rem;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width='10'%20height='7'%20viewBox='0%200%2010%207'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cpath%20d='M0%200l5%207%205-7H0z'%20fill='%23000'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5em center;
+    background-size: 0.6em auto;
+}
+
+a {
+    color:var(--color-text);
+    text-decoration:underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    form {
+        padding: 1.5em;
+        width: 95%;
+    }
+
+    input[type="submit"] {
+        width: 90%;
+        min-width: unset;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application Form</title>
+    <link rel="stylesheet" href="/static/styles-1.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Mood-Based Music Generator — Application Form</h1>
+    </header>
+    <main>
+      <section>
+        <p>Please fill out this form with the required information:</p>
+        <form action="/send" method="POST">
+          {{ form.hidden_tag() }}
+
+          <fieldset>
+            <label for="first_name">First Name: {{ form.first_name }}</label>
+            <label for="last_name">Last Name: {{ form.last_name }}</label>
+            <label for="email">Email: {{ form.email }}</label>
+          </fieldset>
+
+          <fieldset>
+            <label>Product Type:</label>
+            <div class="radio-group">
+              {% for subfield in form.product_type %}
+              <label class="radio-label"
+                >{{ subfield() }} {{ subfield.label.text }}</label
+              >
+              {% endfor %}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <label for="age">Age: {{ form.age }}</label>
+            <label for="referrer"
+              >How did you hear about us? {{
+              form.referrer(class_="styled-select") }}</label
+            >
+          </fieldset>
+
+          <fieldset>
+            <label for="information">Information: {{ form.information }}</label>
+            <label class="checkbox-label"
+              >{{ form.terms }} I accept the&nbsp;
+              <a href="#">terms and conditions</a></label
+            >
+          </fieldset>
+
+          <div>{{ form.recaptcha }}</div>
+
+          <input type="submit" value="Submit" />
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
