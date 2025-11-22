@@ -83,7 +83,7 @@ csp = {
     'style-src': ["'self'", "'unsafe-inline'"],
     'img-src': ["'self'", "data:"],
     'frame-src': ["https://www.google.com/recaptcha/"],
-    'form-action': ["'self'", "'unsafe-url'"],
+    'form-action': ["'self'"],
     'connect-src': ["'self'"]
 }
 
@@ -98,7 +98,8 @@ Talisman(
     strict_transport_security_preload=is_production,
     referrer_policy='no-referrer',
     frame_options='DENY',
-    force_https=is_production
+    force_https=is_production,
+    force_form_action=True
 )
 
 # --- Add Security Header: X-Content-Type-Options ---
@@ -259,4 +260,5 @@ def internal_error(e):
 if __name__ == '__main__':
     debug = not is_production
     app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)), debug=debug)
+
 
