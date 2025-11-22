@@ -173,7 +173,6 @@ def index():
 
 @app.route('/send', methods=['POST'])
 @limiter.limit("5 per minute")
-@csrf.exempt
 def send_email():
     form = SubmissionForm()
     if not form.validate_on_submit():
@@ -259,5 +258,6 @@ def internal_error(e):
 if __name__ == '__main__':
     debug = not is_production
     app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)), debug=debug)
+
 
 
