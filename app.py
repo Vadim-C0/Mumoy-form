@@ -83,7 +83,7 @@ csp = {
     'style-src': ["'self'", "'unsafe-inline'"],
     'img-src': ["'self'", "data:"],
     'frame-src': ["https://www.google.com/recaptcha/"],
-    'form-action': ["'self'"],
+    'form-action': ["'self'", "'unsafe-url'"],
     'connect-src': ["'self'"]
 }
 
@@ -259,3 +259,4 @@ def internal_error(e):
 if __name__ == '__main__':
     debug = not is_production
     app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)), debug=debug)
+
