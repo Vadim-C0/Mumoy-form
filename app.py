@@ -214,8 +214,8 @@ def send_email():
         mail_user = Mail(
             from_email=os.getenv("FROM_EMAIL"),
             to_emails=user_email,
-            subject="Welcome!",
-            plain_text_content=f"Hello {first_name},\n\nYour submission was received successfully."
+            subject="Welcome to Mumoy!",
+            plain_text_content=f"Hello {first_name},\n\nYou've successfully submitted all the data and our team will be in touch with you sooner!"
         )
         mail_user.reply_to = ReplyTo(os.getenv("FROM_EMAIL"))
         sg.send(mail_user)
@@ -225,8 +225,8 @@ def send_email():
         mail_admin = Mail(
             from_email=os.getenv("FROM_EMAIL"),
             to_emails=os.getenv("ADMIN_EMAIL"),
-            subject="New Form Submission",
-            plain_text_content=(f"New form submission:\n\n"
+            subject="New Mumoy Form Submission",
+            plain_text_content=(f"New form submission received:\n\n"
                                 f"First Name: {first_name}\n"
                                 f"Last Name: {last_name}\n"
                                 f"Email: {user_email}\n"
@@ -259,6 +259,7 @@ def internal_error(e):
 if __name__ == '__main__':
     debug = not is_production
     app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)), debug=debug)
+
 
 
 
